@@ -6,13 +6,29 @@ const searchBtn = document.querySelector("#search-btn");
 
 let cocktailsData = cocktails;
 
-function renderData(cocktails) {
-  for (let item of cocktails) {
-    createCocktails(item);
-    console.log(item, "el");
-  }
+input.addEventListener('input', function (event) {
+  const name = event.target.value
+    let filteredData = cocktailsData.filter((el) => {
+    return el.strDrink.toLowerCase().includes(name.toLowerCase())
+    })
+  console.log(filteredData, 'filtered')
+})
+
+
+// function renderData(cocktails) {
+//   for (let item of cocktails) {
+//     createCocktails(item);
+//     console.log(item, "el");
+//   }
+// }
+renderData(cocktailsData);
+function renderData() {
+  cocktailsData.map((item) => {
+    return createCocktails(item);
+  });
 }
 renderData(cocktailsData);
+
 
 function createCocktails(item) {
     const el = `
