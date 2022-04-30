@@ -1,3 +1,4 @@
+
 import { cocktails } from './data.js'
 
 const main = document.querySelector(".main-content");
@@ -9,20 +10,25 @@ let cocktailsData = cocktails;
 input.addEventListener('input', function (event) {
   const name = event.target.value
     let filteredData = cocktailsData.filter((el) => {
-    return el.strDrink.toLowerCase().includes(name.toLowerCase())
+      return el.strDrink.toLowerCase().includes(name.toLowerCase())
     })
   console.log(filteredData, 'filtered')
+  renderData(filteredData);
 })
 
 
+
 // function renderData(cocktails) {
+//   main.innerHTML=''
 //   for (let item of cocktails) {
 //     createCocktails(item);
 //     console.log(item, "el");
 //   }
 // }
-renderData(cocktailsData);
-function renderData() {
+// renderData(cocktailsData)
+
+function renderData(cocktailsData) {
+  main.innerHTML = ''
   cocktailsData.map((item) => {
     return createCocktails(item);
   });
